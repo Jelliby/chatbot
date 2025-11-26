@@ -13,16 +13,16 @@ function Te(n) {
   M = n;
 }
 var O = { exec: () => null };
-function g(n, e = "") {
+function f(n, e = "") {
   let r = typeof n == "string" ? n : n.source, s = { replace: (t, a) => {
     let i = typeof a == "string" ? a : a.source;
     return i = i.replace(T.caret, "$1"), r = r.replace(t, i), s;
   }, getRegex: () => new RegExp(r, e) };
   return s;
 }
-var T = { codeRemoveIndent: /^(?: {1,4}| {0,3}\t)/gm, outputLinkReplace: /\\([\[\]])/g, indentCodeCompensation: /^(\s+)(?:```)/, beginningSpace: /^\s+/, endingHash: /#$/, startingSpaceChar: /^ /, endingSpaceChar: / $/, nonSpaceChar: /[^ ]/, newLineCharGlobal: /\n/g, tabCharGlobal: /\t/g, multipleSpaceGlobal: /\s+/g, blankLine: /^[ \t]*$/, doubleBlankLine: /\n[ \t]*\n[ \t]*$/, blockquoteStart: /^ {0,3}>/, blockquoteSetextReplace: /\n {0,3}((?:=+|-+) *)(?=\n|$)/g, blockquoteSetextReplace2: /^ {0,3}>[ \t]?/gm, listReplaceTabs: /^\t+/, listReplaceNesting: /^ {1,4}(?=( {4})*[^ ])/g, listIsTask: /^\[[ xX]\] /, listReplaceTask: /^\[[ xX]\] +/, anyLine: /\n.*\n/, hrefBrackets: /^<(.*)>$/, tableDelimiter: /[:|]/, tableAlignChars: /^\||\| *$/g, tableRowBlankLine: /\n[ \t]*$/, tableAlignRight: /^ *-+: *$/, tableAlignCenter: /^ *:-+: *$/, tableAlignLeft: /^ *:-+ *$/, startATag: /^<a /i, endATag: /^<\/a>/i, startPreScriptTag: /^<(pre|code|kbd|script)(\s|>)/i, endPreScriptTag: /^<\/(pre|code|kbd|script)(\s|>)/i, startAngleBracket: /^</, endAngleBracket: />$/, pedanticHrefTitle: /^([^'"]*[^\s])\s+(['"])(.*)\2/, unicodeAlphaNumeric: /[\p{L}\p{N}]/u, escapeTest: /[&<>"']/, escapeReplace: /[&<>"']/g, escapeTestNoEncode: /[<>"']|&(?!(#\d{1,7}|#[Xx][a-fA-F0-9]{1,6}|\w+);)/, escapeReplaceNoEncode: /[<>"']|&(?!(#\d{1,7}|#[Xx][a-fA-F0-9]{1,6}|\w+);)/g, unescapeTest: /&(#(?:\d+)|(?:#x[0-9A-Fa-f]+)|(?:\w+));?/ig, caret: /(^|[^\[])\^/g, percentDecode: /%25/g, findPipe: /\|/g, splitPipe: / \|/, slashPipe: /\\\|/g, carriageReturn: /\r\n|\r/g, spaceLine: /^ +$/gm, notSpaceStart: /^\S*/, endingNewline: /\n$/, listItemRegex: (n) => new RegExp(`^( {0,3}${n})((?:[	 ][^\\n]*)?(?:\\n|$))`), nextBulletRegex: (n) => new RegExp(`^ {0,${Math.min(3, n - 1)}}(?:[*+-]|\\d{1,9}[.)])((?:[ 	][^\\n]*)?(?:\\n|$))`), hrRegex: (n) => new RegExp(`^ {0,${Math.min(3, n - 1)}}((?:- *){3,}|(?:_ *){3,}|(?:\\* *){3,})(?:\\n+|$)`), fencesBeginRegex: (n) => new RegExp(`^ {0,${Math.min(3, n - 1)}}(?:\`\`\`|~~~)`), headingBeginRegex: (n) => new RegExp(`^ {0,${Math.min(3, n - 1)}}#`), htmlBeginRegex: (n) => new RegExp(`^ {0,${Math.min(3, n - 1)}}<(?:[a-z].*>|!--)`, "i") }, Ge = /^(?:[ \t]*(?:\n|$))+/, Qe = /^((?: {4}| {0,3}\t)[^\n]+(?:\n(?:[ \t]*(?:\n|$))*)?)+/, Ve = /^ {0,3}(`{3,}(?=[^`\n]*(?:\n|$))|~{3,})([^\n]*)(?:\n|$)(?:|([\s\S]*?)(?:\n|$))(?: {0,3}\1[~`]* *(?=\n|$)|$)/, F = /^ {0,3}((?:-[\t ]*){3,}|(?:_[ \t]*){3,}|(?:\*[ \t]*){3,})(?:\n+|$)/, We = /^ {0,3}(#{1,6})(?=\s|$)(.*)(?:\n+|$)/, ae = /(?:[*+-]|\d{1,9}[.)])/, Re = /^(?!bull |blockCode|fences|blockquote|heading|html|table)((?:.|\n(?!\s*?\n|bull |blockCode|fences|blockquote|heading|html|table))+?)\n {0,3}(=+|-+) *(?:\n+|$)/, Ce = g(Re).replace(/bull/g, ae).replace(/blockCode/g, /(?: {4}| {0,3}\t)/).replace(/fences/g, / {0,3}(?:`{3,}|~{3,})/).replace(/blockquote/g, / {0,3}>/).replace(/heading/g, / {0,3}#{1,6}/).replace(/html/g, / {0,3}<[^\n>]+>\n/).replace(/\|table/g, "").getRegex(), Ue = g(Re).replace(/bull/g, ae).replace(/blockCode/g, /(?: {4}| {0,3}\t)/).replace(/fences/g, / {0,3}(?:`{3,}|~{3,})/).replace(/blockquote/g, / {0,3}>/).replace(/heading/g, / {0,3}#{1,6}/).replace(/html/g, / {0,3}<[^\n>]+>\n/).replace(/table/g, / {0,3}\|?(?:[:\- ]*\|)+[\:\- ]*\n/).getRegex(), le = /^([^\n]+(?:\n(?!hr|heading|lheading|blockquote|fences|list|html|table| +\n)[^\n]+)*)/, Xe = /^[^\n]+/, oe = /(?!\s*\])(?:\\[\s\S]|[^\[\]\\])+/, Je = g(/^ {0,3}\[(label)\]: *(?:\n[ \t]*)?([^<\s][^\s]*|<.*?>)(?:(?: +(?:\n[ \t]*)?| *\n[ \t]*)(title))? *(?:\n+|$)/).replace("label", oe).replace("title", /(?:"(?:\\"?|[^"\\])*"|'[^'\n]*(?:\n[^'\n]+)*\n?'|\([^()]*\))/).getRegex(), Ke = g(/^( {0,3}bull)([ \t][^\n]+?)?(?:\n|$)/).replace(/bull/g, ae).getRegex(), ee = "address|article|aside|base|basefont|blockquote|body|caption|center|col|colgroup|dd|details|dialog|dir|div|dl|dt|fieldset|figcaption|figure|footer|form|frame|frameset|h[1-6]|head|header|hr|html|iframe|legend|li|link|main|menu|menuitem|meta|nav|noframes|ol|optgroup|option|p|param|search|section|summary|table|tbody|td|tfoot|th|thead|title|tr|track|ul", ce = /<!--(?:-?>|[\s\S]*?(?:-->|$))/, Ye = g("^ {0,3}(?:<(script|pre|style|textarea)[\\s>][\\s\\S]*?(?:</\\1>[^\\n]*\\n+|$)|comment[^\\n]*(\\n+|$)|<\\?[\\s\\S]*?(?:\\?>\\n*|$)|<![A-Z][\\s\\S]*?(?:>\\n*|$)|<!\\[CDATA\\[[\\s\\S]*?(?:\\]\\]>\\n*|$)|</?(tag)(?: +|\\n|/?>)[\\s\\S]*?(?:(?:\\n[ 	]*)+\\n|$)|<(?!script|pre|style|textarea)([a-z][\\w-]*)(?:attribute)*? */?>(?=[ \\t]*(?:\\n|$))[\\s\\S]*?(?:(?:\\n[ 	]*)+\\n|$)|</(?!script|pre|style|textarea)[a-z][\\w-]*\\s*>(?=[ \\t]*(?:\\n|$))[\\s\\S]*?(?:(?:\\n[ 	]*)+\\n|$))", "i").replace("comment", ce).replace("tag", ee).replace("attribute", / +[a-zA-Z:_][\w.:-]*(?: *= *"[^"\n]*"| *= *'[^'\n]*'| *= *[^\s"'=<>`]+)?/).getRegex(), Ee = g(le).replace("hr", F).replace("heading", " {0,3}#{1,6}(?:\\s|$)").replace("|lheading", "").replace("|table", "").replace("blockquote", " {0,3}>").replace("fences", " {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n").replace("list", " {0,3}(?:[*+-]|1[.)]) ").replace("html", "</?(?:tag)(?: +|\\n|/?>)|<(?:script|pre|style|textarea|!--)").replace("tag", ee).getRegex(), et = g(/^( {0,3}> ?(paragraph|[^\n]*)(?:\n|$))+/).replace("paragraph", Ee).getRegex(), he = { blockquote: et, code: Qe, def: Je, fences: Ve, heading: We, hr: F, html: Ye, lheading: Ce, list: Ke, newline: Ge, paragraph: Ee, table: O, text: Xe }, xe = g("^ *([^\\n ].*)\\n {0,3}((?:\\| *)?:?-+:? *(?:\\| *:?-+:? *)*(?:\\| *)?)(?:\\n((?:(?! *\\n|hr|heading|blockquote|code|fences|list|html).*(?:\\n|$))*)\\n*|$)").replace("hr", F).replace("heading", " {0,3}#{1,6}(?:\\s|$)").replace("blockquote", " {0,3}>").replace("code", "(?: {4}| {0,3}	)[^\\n]").replace("fences", " {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n").replace("list", " {0,3}(?:[*+-]|1[.)]) ").replace("html", "</?(?:tag)(?: +|\\n|/?>)|<(?:script|pre|style|textarea|!--)").replace("tag", ee).getRegex(), tt = { ...he, lheading: Ue, table: xe, paragraph: g(le).replace("hr", F).replace("heading", " {0,3}#{1,6}(?:\\s|$)").replace("|lheading", "").replace("table", xe).replace("blockquote", " {0,3}>").replace("fences", " {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n").replace("list", " {0,3}(?:[*+-]|1[.)]) ").replace("html", "</?(?:tag)(?: +|\\n|/?>)|<(?:script|pre|style|textarea|!--)").replace("tag", ee).getRegex() }, nt = { ...he, html: g(`^ *(?:comment *(?:\\n|\\s*$)|<(tag)[\\s\\S]+?</\\1> *(?:\\n{2,}|\\s*$)|<tag(?:"[^"]*"|'[^']*'|\\s[^'"/>\\s]*)*?/?> *(?:\\n{2,}|\\s*$))`).replace("comment", ce).replace(/tag/g, "(?!(?:a|em|strong|small|s|cite|q|dfn|abbr|data|time|code|var|samp|kbd|sub|sup|i|b|u|mark|ruby|rt|rp|bdi|bdo|span|br|wbr|ins|del|img)\\b)\\w+(?!:|[^\\w\\s@]*@)\\b").getRegex(), def: /^ *\[([^\]]+)\]: *<?([^\s>]+)>?(?: +(["(][^\n]+[")]))? *(?:\n+|$)/, heading: /^(#{1,6})(.*)(?:\n+|$)/, fences: O, lheading: /^(.+?)\n {0,3}(=+|-+) *(?:\n+|$)/, paragraph: g(le).replace("hr", F).replace("heading", ` *#{1,6} *[^
-]`).replace("lheading", Ce).replace("|table", "").replace("blockquote", " {0,3}>").replace("|fences", "").replace("|list", "").replace("|html", "").replace("|tag", "").getRegex() }, rt = /^\\([!"#$%&'()*+,\-./:;<=>?@\[\]\\^_`{|}~])/, st = /^(`+)([^`]|[^`][\s\S]*?[^`])\1(?!`)/, Ae = /^( {2,}|\\)\n(?!\s*$)/, it = /^(`+|[^`])(?:(?= {2,}\n)|[\s\S]*?(?:(?=[\\<!\[`*_]|\b_|$)|[^ ](?= {2,}\n)))/, te = /[\p{P}\p{S}]/u, pe = /[\s\p{P}\p{S}]/u, ze = /[^\s\p{P}\p{S}]/u, at = g(/^((?![*_])punctSpace)/, "u").replace(/punctSpace/g, pe).getRegex(), Le = /(?!~)[\p{P}\p{S}]/u, lt = /(?!~)[\s\p{P}\p{S}]/u, ot = /(?:[^\s\p{P}\p{S}]|~)/u, ct = g(/link|code|html/, "g").replace("link", new RegExp("\\[(?:[^\\[\\]`]|(?<!`)(?<a>`+)[^`]+\\k<a>(?!`))*?\\]\\((?:\\\\[\\s\\S]|[^\\\\\\(\\)]|\\((?:\\\\[\\s\\S]|[^\\\\\\(\\)])*\\))*\\)")).replace("code", new RegExp("(?<!`)(?<b>`+)[^`]+\\k<b>(?!`)")).replace("html", /<(?! )[^<>]*?>/).getRegex(), Be = /^(?:\*+(?:((?!\*)punct)|[^\s*]))|^_+(?:((?!_)punct)|([^\s_]))/, ht = g(Be, "u").replace(/punct/g, te).getRegex(), pt = g(Be, "u").replace(/punct/g, Le).getRegex(), Pe = "^[^_*]*?__[^_*]*?\\*[^_*]*?(?=__)|[^*]+(?=[^*])|(?!\\*)punct(\\*+)(?=[\\s]|$)|notPunctSpace(\\*+)(?!\\*)(?=punctSpace|$)|(?!\\*)punctSpace(\\*+)(?=notPunctSpace)|[\\s](\\*+)(?!\\*)(?=punct)|(?!\\*)punct(\\*+)(?!\\*)(?=punct)|notPunctSpace(\\*+)(?=notPunctSpace)", ut = g(Pe, "gu").replace(/notPunctSpace/g, ze).replace(/punctSpace/g, pe).replace(/punct/g, te).getRegex(), dt = g(Pe, "gu").replace(/notPunctSpace/g, ot).replace(/punctSpace/g, lt).replace(/punct/g, Le).getRegex(), gt = g("^[^_*]*?\\*\\*[^_*]*?_[^_*]*?(?=\\*\\*)|[^_]+(?=[^_])|(?!_)punct(_+)(?=[\\s]|$)|notPunctSpace(_+)(?!_)(?=punctSpace|$)|(?!_)punctSpace(_+)(?=notPunctSpace)|[\\s](_+)(?!_)(?=punct)|(?!_)punct(_+)(?!_)(?=punct)", "gu").replace(/notPunctSpace/g, ze).replace(/punctSpace/g, pe).replace(/punct/g, te).getRegex(), ft = g(/\\(punct)/, "gu").replace(/punct/g, te).getRegex(), kt = g(/^<(scheme:[^\s\x00-\x1f<>]*|email)>/).replace("scheme", /[a-zA-Z][a-zA-Z0-9+.-]{1,31}/).replace("email", /[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+(@)[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+(?![-_])/).getRegex(), bt = g(ce).replace("(?:-->|$)", "-->").getRegex(), mt = g("^comment|^</[a-zA-Z][\\w:-]*\\s*>|^<[a-zA-Z][\\w-]*(?:attribute)*?\\s*/?>|^<\\?[\\s\\S]*?\\?>|^<![a-zA-Z]+\\s[\\s\\S]*?>|^<!\\[CDATA\\[[\\s\\S]*?\\]\\]>").replace("comment", bt).replace("attribute", /\s+[a-zA-Z:_][\w.:-]*(?:\s*=\s*"[^"]*"|\s*=\s*'[^']*'|\s*=\s*[^\s"'=<>`]+)?/).getRegex(), J = /(?:\[(?:\\[\s\S]|[^\[\]\\])*\]|\\[\s\S]|`+[^`]*?`+(?!`)|[^\[\]\\`])*?/, xt = g(/^!?\[(label)\]\(\s*(href)(?:(?:[ \t]*(?:\n[ \t]*)?)(title))?\s*\)/).replace("label", J).replace("href", /<(?:\\.|[^\n<>\\])+>|[^ \t\n\x00-\x1f]*/).replace("title", /"(?:\\"?|[^"\\])*"|'(?:\\'?|[^'\\])*'|\((?:\\\)?|[^)\\])*\)/).getRegex(), Ie = g(/^!?\[(label)\]\[(ref)\]/).replace("label", J).replace("ref", oe).getRegex(), Me = g(/^!?\[(ref)\](?:\[\])?/).replace("ref", oe).getRegex(), wt = g("reflink|nolink(?!\\()", "g").replace("reflink", Ie).replace("nolink", Me).getRegex(), we = /[hH][tT][tT][pP][sS]?|[fF][tT][pP]/, ue = { _backpedal: O, anyPunctuation: ft, autolink: kt, blockSkip: ct, br: Ae, code: st, del: O, emStrongLDelim: ht, emStrongRDelimAst: ut, emStrongRDelimUnd: gt, escape: rt, link: xt, nolink: Me, punctuation: at, reflink: Ie, reflinkSearch: wt, tag: mt, text: it, url: O }, yt = { ...ue, link: g(/^!?\[(label)\]\((.*?)\)/).replace("label", J).getRegex(), reflink: g(/^!?\[(label)\]\s*\[([^\]]*)\]/).replace("label", J).getRegex() }, ne = { ...ue, emStrongRDelimAst: dt, emStrongLDelim: pt, url: g(/^((?:protocol):\/\/|www\.)(?:[a-zA-Z0-9\-]+\.?)+[^\s<]*|^email/).replace("protocol", we).replace("email", /[A-Za-z0-9._+-]+(@)[a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]*[a-zA-Z0-9])+(?![-_])/).getRegex(), _backpedal: /(?:[^?!.,:;*_'"~()&]+|\([^)]*\)|&(?![a-zA-Z0-9]+;$)|[?!.,:;*_'"~)]+(?!$))+/, del: /^(~~?)(?=[^\s~])((?:\\[\s\S]|[^\\])*?(?:\\[\s\S]|[^\s~\\]))\1(?=[^~]|$)/, text: g(/^([`~]+|[^`~])(?:(?= {2,}\n)|(?=[a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-]+@)|[\s\S]*?(?:(?=[\\<!\[`*~_]|\b_|protocol:\/\/|www\.|$)|[^ ](?= {2,}\n)|[^a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-](?=[a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-]+@)))/).replace("protocol", we).getRegex() }, $t = { ...ne, br: g(Ae).replace("{2,}", "*").getRegex(), text: g(ne.text).replace("\\b_", "\\b_| {2,}\\n").replace(/\{2,\}/g, "*").getRegex() }, X = { normal: he, gfm: tt, pedantic: nt }, D = { normal: ue, gfm: ne, breaks: $t, pedantic: yt }, St = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }, ye = (n) => St[n];
-function L(n, e) {
+var T = { codeRemoveIndent: /^(?: {1,4}| {0,3}\t)/gm, outputLinkReplace: /\\([\[\]])/g, indentCodeCompensation: /^(\s+)(?:```)/, beginningSpace: /^\s+/, endingHash: /#$/, startingSpaceChar: /^ /, endingSpaceChar: / $/, nonSpaceChar: /[^ ]/, newLineCharGlobal: /\n/g, tabCharGlobal: /\t/g, multipleSpaceGlobal: /\s+/g, blankLine: /^[ \t]*$/, doubleBlankLine: /\n[ \t]*\n[ \t]*$/, blockquoteStart: /^ {0,3}>/, blockquoteSetextReplace: /\n {0,3}((?:=+|-+) *)(?=\n|$)/g, blockquoteSetextReplace2: /^ {0,3}>[ \t]?/gm, listReplaceTabs: /^\t+/, listReplaceNesting: /^ {1,4}(?=( {4})*[^ ])/g, listIsTask: /^\[[ xX]\] /, listReplaceTask: /^\[[ xX]\] +/, anyLine: /\n.*\n/, hrefBrackets: /^<(.*)>$/, tableDelimiter: /[:|]/, tableAlignChars: /^\||\| *$/g, tableRowBlankLine: /\n[ \t]*$/, tableAlignRight: /^ *-+: *$/, tableAlignCenter: /^ *:-+: *$/, tableAlignLeft: /^ *:-+ *$/, startATag: /^<a /i, endATag: /^<\/a>/i, startPreScriptTag: /^<(pre|code|kbd|script)(\s|>)/i, endPreScriptTag: /^<\/(pre|code|kbd|script)(\s|>)/i, startAngleBracket: /^</, endAngleBracket: />$/, pedanticHrefTitle: /^([^'"]*[^\s])\s+(['"])(.*)\2/, unicodeAlphaNumeric: /[\p{L}\p{N}]/u, escapeTest: /[&<>"']/, escapeReplace: /[&<>"']/g, escapeTestNoEncode: /[<>"']|&(?!(#\d{1,7}|#[Xx][a-fA-F0-9]{1,6}|\w+);)/, escapeReplaceNoEncode: /[<>"']|&(?!(#\d{1,7}|#[Xx][a-fA-F0-9]{1,6}|\w+);)/g, unescapeTest: /&(#(?:\d+)|(?:#x[0-9A-Fa-f]+)|(?:\w+));?/ig, caret: /(^|[^\[])\^/g, percentDecode: /%25/g, findPipe: /\|/g, splitPipe: / \|/, slashPipe: /\\\|/g, carriageReturn: /\r\n|\r/g, spaceLine: /^ +$/gm, notSpaceStart: /^\S*/, endingNewline: /\n$/, listItemRegex: (n) => new RegExp(`^( {0,3}${n})((?:[	 ][^\\n]*)?(?:\\n|$))`), nextBulletRegex: (n) => new RegExp(`^ {0,${Math.min(3, n - 1)}}(?:[*+-]|\\d{1,9}[.)])((?:[ 	][^\\n]*)?(?:\\n|$))`), hrRegex: (n) => new RegExp(`^ {0,${Math.min(3, n - 1)}}((?:- *){3,}|(?:_ *){3,}|(?:\\* *){3,})(?:\\n+|$)`), fencesBeginRegex: (n) => new RegExp(`^ {0,${Math.min(3, n - 1)}}(?:\`\`\`|~~~)`), headingBeginRegex: (n) => new RegExp(`^ {0,${Math.min(3, n - 1)}}#`), htmlBeginRegex: (n) => new RegExp(`^ {0,${Math.min(3, n - 1)}}<(?:[a-z].*>|!--)`, "i") }, Ge = /^(?:[ \t]*(?:\n|$))+/, Qe = /^((?: {4}| {0,3}\t)[^\n]+(?:\n(?:[ \t]*(?:\n|$))*)?)+/, Ve = /^ {0,3}(`{3,}(?=[^`\n]*(?:\n|$))|~{3,})([^\n]*)(?:\n|$)(?:|([\s\S]*?)(?:\n|$))(?: {0,3}\1[~`]* *(?=\n|$)|$)/, F = /^ {0,3}((?:-[\t ]*){3,}|(?:_[ \t]*){3,}|(?:\*[ \t]*){3,})(?:\n+|$)/, We = /^ {0,3}(#{1,6})(?=\s|$)(.*)(?:\n+|$)/, ae = /(?:[*+-]|\d{1,9}[.)])/, Re = /^(?!bull |blockCode|fences|blockquote|heading|html|table)((?:.|\n(?!\s*?\n|bull |blockCode|fences|blockquote|heading|html|table))+?)\n {0,3}(=+|-+) *(?:\n+|$)/, Ce = f(Re).replace(/bull/g, ae).replace(/blockCode/g, /(?: {4}| {0,3}\t)/).replace(/fences/g, / {0,3}(?:`{3,}|~{3,})/).replace(/blockquote/g, / {0,3}>/).replace(/heading/g, / {0,3}#{1,6}/).replace(/html/g, / {0,3}<[^\n>]+>\n/).replace(/\|table/g, "").getRegex(), Ue = f(Re).replace(/bull/g, ae).replace(/blockCode/g, /(?: {4}| {0,3}\t)/).replace(/fences/g, / {0,3}(?:`{3,}|~{3,})/).replace(/blockquote/g, / {0,3}>/).replace(/heading/g, / {0,3}#{1,6}/).replace(/html/g, / {0,3}<[^\n>]+>\n/).replace(/table/g, / {0,3}\|?(?:[:\- ]*\|)+[\:\- ]*\n/).getRegex(), le = /^([^\n]+(?:\n(?!hr|heading|lheading|blockquote|fences|list|html|table| +\n)[^\n]+)*)/, Xe = /^[^\n]+/, oe = /(?!\s*\])(?:\\[\s\S]|[^\[\]\\])+/, Je = f(/^ {0,3}\[(label)\]: *(?:\n[ \t]*)?([^<\s][^\s]*|<.*?>)(?:(?: +(?:\n[ \t]*)?| *\n[ \t]*)(title))? *(?:\n+|$)/).replace("label", oe).replace("title", /(?:"(?:\\"?|[^"\\])*"|'[^'\n]*(?:\n[^'\n]+)*\n?'|\([^()]*\))/).getRegex(), Ke = f(/^( {0,3}bull)([ \t][^\n]+?)?(?:\n|$)/).replace(/bull/g, ae).getRegex(), ee = "address|article|aside|base|basefont|blockquote|body|caption|center|col|colgroup|dd|details|dialog|dir|div|dl|dt|fieldset|figcaption|figure|footer|form|frame|frameset|h[1-6]|head|header|hr|html|iframe|legend|li|link|main|menu|menuitem|meta|nav|noframes|ol|optgroup|option|p|param|search|section|summary|table|tbody|td|tfoot|th|thead|title|tr|track|ul", ce = /<!--(?:-?>|[\s\S]*?(?:-->|$))/, Ye = f("^ {0,3}(?:<(script|pre|style|textarea)[\\s>][\\s\\S]*?(?:</\\1>[^\\n]*\\n+|$)|comment[^\\n]*(\\n+|$)|<\\?[\\s\\S]*?(?:\\?>\\n*|$)|<![A-Z][\\s\\S]*?(?:>\\n*|$)|<!\\[CDATA\\[[\\s\\S]*?(?:\\]\\]>\\n*|$)|</?(tag)(?: +|\\n|/?>)[\\s\\S]*?(?:(?:\\n[ 	]*)+\\n|$)|<(?!script|pre|style|textarea)([a-z][\\w-]*)(?:attribute)*? */?>(?=[ \\t]*(?:\\n|$))[\\s\\S]*?(?:(?:\\n[ 	]*)+\\n|$)|</(?!script|pre|style|textarea)[a-z][\\w-]*\\s*>(?=[ \\t]*(?:\\n|$))[\\s\\S]*?(?:(?:\\n[ 	]*)+\\n|$))", "i").replace("comment", ce).replace("tag", ee).replace("attribute", / +[a-zA-Z:_][\w.:-]*(?: *= *"[^"\n]*"| *= *'[^'\n]*'| *= *[^\s"'=<>`]+)?/).getRegex(), Ae = f(le).replace("hr", F).replace("heading", " {0,3}#{1,6}(?:\\s|$)").replace("|lheading", "").replace("|table", "").replace("blockquote", " {0,3}>").replace("fences", " {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n").replace("list", " {0,3}(?:[*+-]|1[.)]) ").replace("html", "</?(?:tag)(?: +|\\n|/?>)|<(?:script|pre|style|textarea|!--)").replace("tag", ee).getRegex(), et = f(/^( {0,3}> ?(paragraph|[^\n]*)(?:\n|$))+/).replace("paragraph", Ae).getRegex(), he = { blockquote: et, code: Qe, def: Je, fences: Ve, heading: We, hr: F, html: Ye, lheading: Ce, list: Ke, newline: Ge, paragraph: Ae, table: O, text: Xe }, xe = f("^ *([^\\n ].*)\\n {0,3}((?:\\| *)?:?-+:? *(?:\\| *:?-+:? *)*(?:\\| *)?)(?:\\n((?:(?! *\\n|hr|heading|blockquote|code|fences|list|html).*(?:\\n|$))*)\\n*|$)").replace("hr", F).replace("heading", " {0,3}#{1,6}(?:\\s|$)").replace("blockquote", " {0,3}>").replace("code", "(?: {4}| {0,3}	)[^\\n]").replace("fences", " {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n").replace("list", " {0,3}(?:[*+-]|1[.)]) ").replace("html", "</?(?:tag)(?: +|\\n|/?>)|<(?:script|pre|style|textarea|!--)").replace("tag", ee).getRegex(), tt = { ...he, lheading: Ue, table: xe, paragraph: f(le).replace("hr", F).replace("heading", " {0,3}#{1,6}(?:\\s|$)").replace("|lheading", "").replace("table", xe).replace("blockquote", " {0,3}>").replace("fences", " {0,3}(?:`{3,}(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n").replace("list", " {0,3}(?:[*+-]|1[.)]) ").replace("html", "</?(?:tag)(?: +|\\n|/?>)|<(?:script|pre|style|textarea|!--)").replace("tag", ee).getRegex() }, nt = { ...he, html: f(`^ *(?:comment *(?:\\n|\\s*$)|<(tag)[\\s\\S]+?</\\1> *(?:\\n{2,}|\\s*$)|<tag(?:"[^"]*"|'[^']*'|\\s[^'"/>\\s]*)*?/?> *(?:\\n{2,}|\\s*$))`).replace("comment", ce).replace(/tag/g, "(?!(?:a|em|strong|small|s|cite|q|dfn|abbr|data|time|code|var|samp|kbd|sub|sup|i|b|u|mark|ruby|rt|rp|bdi|bdo|span|br|wbr|ins|del|img)\\b)\\w+(?!:|[^\\w\\s@]*@)\\b").getRegex(), def: /^ *\[([^\]]+)\]: *<?([^\s>]+)>?(?: +(["(][^\n]+[")]))? *(?:\n+|$)/, heading: /^(#{1,6})(.*)(?:\n+|$)/, fences: O, lheading: /^(.+?)\n {0,3}(=+|-+) *(?:\n+|$)/, paragraph: f(le).replace("hr", F).replace("heading", ` *#{1,6} *[^
+]`).replace("lheading", Ce).replace("|table", "").replace("blockquote", " {0,3}>").replace("|fences", "").replace("|list", "").replace("|html", "").replace("|tag", "").getRegex() }, rt = /^\\([!"#$%&'()*+,\-./:;<=>?@\[\]\\^_`{|}~])/, st = /^(`+)([^`]|[^`][\s\S]*?[^`])\1(?!`)/, Ee = /^( {2,}|\\)\n(?!\s*$)/, it = /^(`+|[^`])(?:(?= {2,}\n)|[\s\S]*?(?:(?=[\\<!\[`*_]|\b_|$)|[^ ](?= {2,}\n)))/, te = /[\p{P}\p{S}]/u, ue = /[\s\p{P}\p{S}]/u, Le = /[^\s\p{P}\p{S}]/u, at = f(/^((?![*_])punctSpace)/, "u").replace(/punctSpace/g, ue).getRegex(), ze = /(?!~)[\p{P}\p{S}]/u, lt = /(?!~)[\s\p{P}\p{S}]/u, ot = /(?:[^\s\p{P}\p{S}]|~)/u, ct = f(/link|code|html/, "g").replace("link", new RegExp("\\[(?:[^\\[\\]`]|(?<!`)(?<a>`+)[^`]+\\k<a>(?!`))*?\\]\\((?:\\\\[\\s\\S]|[^\\\\\\(\\)]|\\((?:\\\\[\\s\\S]|[^\\\\\\(\\)])*\\))*\\)")).replace("code", new RegExp("(?<!`)(?<b>`+)[^`]+\\k<b>(?!`)")).replace("html", /<(?! )[^<>]*?>/).getRegex(), Be = /^(?:\*+(?:((?!\*)punct)|[^\s*]))|^_+(?:((?!_)punct)|([^\s_]))/, ht = f(Be, "u").replace(/punct/g, te).getRegex(), ut = f(Be, "u").replace(/punct/g, ze).getRegex(), Pe = "^[^_*]*?__[^_*]*?\\*[^_*]*?(?=__)|[^*]+(?=[^*])|(?!\\*)punct(\\*+)(?=[\\s]|$)|notPunctSpace(\\*+)(?!\\*)(?=punctSpace|$)|(?!\\*)punctSpace(\\*+)(?=notPunctSpace)|[\\s](\\*+)(?!\\*)(?=punct)|(?!\\*)punct(\\*+)(?!\\*)(?=punct)|notPunctSpace(\\*+)(?=notPunctSpace)", pt = f(Pe, "gu").replace(/notPunctSpace/g, Le).replace(/punctSpace/g, ue).replace(/punct/g, te).getRegex(), dt = f(Pe, "gu").replace(/notPunctSpace/g, ot).replace(/punctSpace/g, lt).replace(/punct/g, ze).getRegex(), gt = f("^[^_*]*?\\*\\*[^_*]*?_[^_*]*?(?=\\*\\*)|[^_]+(?=[^_])|(?!_)punct(_+)(?=[\\s]|$)|notPunctSpace(_+)(?!_)(?=punctSpace|$)|(?!_)punctSpace(_+)(?=notPunctSpace)|[\\s](_+)(?!_)(?=punct)|(?!_)punct(_+)(?!_)(?=punct)", "gu").replace(/notPunctSpace/g, Le).replace(/punctSpace/g, ue).replace(/punct/g, te).getRegex(), ft = f(/\\(punct)/, "gu").replace(/punct/g, te).getRegex(), kt = f(/^<(scheme:[^\s\x00-\x1f<>]*|email)>/).replace("scheme", /[a-zA-Z][a-zA-Z0-9+.-]{1,31}/).replace("email", /[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+(@)[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+(?![-_])/).getRegex(), bt = f(ce).replace("(?:-->|$)", "-->").getRegex(), mt = f("^comment|^</[a-zA-Z][\\w:-]*\\s*>|^<[a-zA-Z][\\w-]*(?:attribute)*?\\s*/?>|^<\\?[\\s\\S]*?\\?>|^<![a-zA-Z]+\\s[\\s\\S]*?>|^<!\\[CDATA\\[[\\s\\S]*?\\]\\]>").replace("comment", bt).replace("attribute", /\s+[a-zA-Z:_][\w.:-]*(?:\s*=\s*"[^"]*"|\s*=\s*'[^']*'|\s*=\s*[^\s"'=<>`]+)?/).getRegex(), J = /(?:\[(?:\\[\s\S]|[^\[\]\\])*\]|\\[\s\S]|`+[^`]*?`+(?!`)|[^\[\]\\`])*?/, xt = f(/^!?\[(label)\]\(\s*(href)(?:(?:[ \t]*(?:\n[ \t]*)?)(title))?\s*\)/).replace("label", J).replace("href", /<(?:\\.|[^\n<>\\])+>|[^ \t\n\x00-\x1f]*/).replace("title", /"(?:\\"?|[^"\\])*"|'(?:\\'?|[^'\\])*'|\((?:\\\)?|[^)\\])*\)/).getRegex(), Ie = f(/^!?\[(label)\]\[(ref)\]/).replace("label", J).replace("ref", oe).getRegex(), Me = f(/^!?\[(ref)\](?:\[\])?/).replace("ref", oe).getRegex(), wt = f("reflink|nolink(?!\\()", "g").replace("reflink", Ie).replace("nolink", Me).getRegex(), we = /[hH][tT][tT][pP][sS]?|[fF][tT][pP]/, pe = { _backpedal: O, anyPunctuation: ft, autolink: kt, blockSkip: ct, br: Ee, code: st, del: O, emStrongLDelim: ht, emStrongRDelimAst: pt, emStrongRDelimUnd: gt, escape: rt, link: xt, nolink: Me, punctuation: at, reflink: Ie, reflinkSearch: wt, tag: mt, text: it, url: O }, yt = { ...pe, link: f(/^!?\[(label)\]\((.*?)\)/).replace("label", J).getRegex(), reflink: f(/^!?\[(label)\]\s*\[([^\]]*)\]/).replace("label", J).getRegex() }, ne = { ...pe, emStrongRDelimAst: dt, emStrongLDelim: ut, url: f(/^((?:protocol):\/\/|www\.)(?:[a-zA-Z0-9\-]+\.?)+[^\s<]*|^email/).replace("protocol", we).replace("email", /[A-Za-z0-9._+-]+(@)[a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]*[a-zA-Z0-9])+(?![-_])/).getRegex(), _backpedal: /(?:[^?!.,:;*_'"~()&]+|\([^)]*\)|&(?![a-zA-Z0-9]+;$)|[?!.,:;*_'"~)]+(?!$))+/, del: /^(~~?)(?=[^\s~])((?:\\[\s\S]|[^\\])*?(?:\\[\s\S]|[^\s~\\]))\1(?=[^~]|$)/, text: f(/^([`~]+|[^`~])(?:(?= {2,}\n)|(?=[a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-]+@)|[\s\S]*?(?:(?=[\\<!\[`*~_]|\b_|protocol:\/\/|www\.|$)|[^ ](?= {2,}\n)|[^a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-](?=[a-zA-Z0-9.!#$%&'*+\/=?_`{\|}~-]+@)))/).replace("protocol", we).getRegex() }, $t = { ...ne, br: f(Ee).replace("{2,}", "*").getRegex(), text: f(ne.text).replace("\\b_", "\\b_| {2,}\\n").replace(/\{2,\}/g, "*").getRegex() }, X = { normal: he, gfm: tt, pedantic: nt }, N = { normal: pe, gfm: ne, breaks: $t, pedantic: yt }, St = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }, ye = (n) => St[n];
+function z(n, e) {
   if (e) {
     if (T.escapeTest.test(n)) return n.replace(T.escapeReplace, ye);
   } else if (T.escapeTestNoEncode.test(n)) return n.replace(T.escapeReplaceNoEncode, ye);
@@ -47,7 +47,7 @@ function Se(n, e) {
   for (; t < s.length; t++) s[t] = s[t].trim().replace(T.slashPipe, "|");
   return s;
 }
-function j(n, e, r) {
+function D(n, e, r) {
   let s = n.length;
   if (s === 0) return "";
   let t = 0;
@@ -97,7 +97,7 @@ var K = class {
     let e = this.rules.block.code.exec(n);
     if (e) {
       let r = e[0].replace(this.rules.other.codeRemoveIndent, "");
-      return { type: "code", raw: e[0], codeBlockStyle: "indented", text: this.options.pedantic ? r : j(r, `
+      return { type: "code", raw: e[0], codeBlockStyle: "indented", text: this.options.pedantic ? r : D(r, `
 `) };
     }
   }
@@ -113,7 +113,7 @@ var K = class {
     if (e) {
       let r = e[2].trim();
       if (this.rules.other.endingHash.test(r)) {
-        let s = j(r, "#");
+        let s = D(r, "#");
         (this.options.pedantic || !s || this.rules.other.endingSpaceChar.test(s)) && (r = s.trim());
       }
       return { type: "heading", raw: e[0], depth: e[1].length, text: r, tokens: this.lexer.inline(r) };
@@ -121,13 +121,13 @@ var K = class {
   }
   hr(n) {
     let e = this.rules.block.hr.exec(n);
-    if (e) return { type: "hr", raw: j(e[0], `
+    if (e) return { type: "hr", raw: D(e[0], `
 `) };
   }
   blockquote(n) {
     let e = this.rules.block.blockquote.exec(n);
     if (e) {
-      let r = j(e[0], `
+      let r = D(e[0], `
 `).split(`
 `), s = "", t = "", a = [];
       for (; r.length > 0; ) {
@@ -137,26 +137,26 @@ var K = class {
         else break;
         r = r.slice(o);
         let c = l.join(`
-`), u = c.replace(this.rules.other.blockquoteSetextReplace, `
+`), d = c.replace(this.rules.other.blockquoteSetextReplace, `
     $1`).replace(this.rules.other.blockquoteSetextReplace2, "");
         s = s ? `${s}
 ${c}` : c, t = t ? `${t}
-${u}` : u;
-        let d = this.lexer.state.top;
-        if (this.lexer.state.top = !0, this.lexer.blockTokens(u, a, !0), this.lexer.state.top = d, r.length === 0) break;
-        let f = a.at(-1);
-        if (f?.type === "code") break;
-        if (f?.type === "blockquote") {
-          let w = f, x = w.raw + `
+${d}` : d;
+        let g = this.lexer.state.top;
+        if (this.lexer.state.top = !0, this.lexer.blockTokens(d, a, !0), this.lexer.state.top = g, r.length === 0) break;
+        let k = a.at(-1);
+        if (k?.type === "code") break;
+        if (k?.type === "blockquote") {
+          let w = k, x = w.raw + `
 ` + r.join(`
 `), R = this.blockquote(x);
           a[a.length - 1] = R, s = s.substring(0, s.length - w.raw.length) + R.raw, t = t.substring(0, t.length - w.text.length) + R.text;
           break;
-        } else if (f?.type === "list") {
-          let w = f, x = w.raw + `
+        } else if (k?.type === "list") {
+          let w = k, x = w.raw + `
 ` + r.join(`
 `), R = this.list(x);
-          a[a.length - 1] = R, s = s.substring(0, s.length - f.raw.length) + R.raw, t = t.substring(0, t.length - w.raw.length) + R.raw, r = x.substring(a.at(-1).raw.length).split(`
+          a[a.length - 1] = R, s = s.substring(0, s.length - k.raw.length) + R.raw, t = t.substring(0, t.length - w.raw.length) + R.raw, r = x.substring(a.at(-1).raw.length).split(`
 `);
           continue;
         }
@@ -171,41 +171,41 @@ ${u}` : u;
       r = s ? `\\d{1,9}\\${r.slice(-1)}` : `\\${r}`, this.options.pedantic && (r = s ? r : "[*+-]");
       let a = this.rules.other.listItemRegex(r), i = !1;
       for (; n; ) {
-        let o = !1, c = "", u = "";
+        let o = !1, c = "", d = "";
         if (!(e = a.exec(n)) || this.rules.block.hr.test(n)) break;
         c = e[0], n = n.substring(c.length);
-        let d = e[2].split(`
-`, 1)[0].replace(this.rules.other.listReplaceTabs, (q) => " ".repeat(3 * q.length)), f = n.split(`
-`, 1)[0], w = !d.trim(), x = 0;
-        if (this.options.pedantic ? (x = 2, u = d.trimStart()) : w ? x = e[1].length + 1 : (x = e[2].search(this.rules.other.nonSpaceChar), x = x > 4 ? 1 : x, u = d.slice(x), x += e[1].length), w && this.rules.other.blankLine.test(f) && (c += f + `
-`, n = n.substring(f.length + 1), o = !0), !o) {
-          let q = this.rules.other.nextBulletRegex(x), H = this.rules.other.hrRegex(x), v = this.rules.other.fencesBeginRegex(x), Z = this.rules.other.headingBeginRegex(x), m = this.rules.other.htmlBeginRegex(x);
+        let g = e[2].split(`
+`, 1)[0].replace(this.rules.other.listReplaceTabs, (q) => " ".repeat(3 * q.length)), k = n.split(`
+`, 1)[0], w = !g.trim(), x = 0;
+        if (this.options.pedantic ? (x = 2, d = g.trimStart()) : w ? x = e[1].length + 1 : (x = e[2].search(this.rules.other.nonSpaceChar), x = x > 4 ? 1 : x, d = g.slice(x), x += e[1].length), w && this.rules.other.blankLine.test(k) && (c += k + `
+`, n = n.substring(k.length + 1), o = !0), !o) {
+          let q = this.rules.other.nextBulletRegex(x), H = this.rules.other.hrRegex(x), v = this.rules.other.fencesBeginRegex(x), Z = this.rules.other.headingBeginRegex(x), p = this.rules.other.htmlBeginRegex(x);
           for (; n; ) {
-            let b = n.split(`
+            let m = n.split(`
 `, 1)[0], B;
-            if (f = b, this.options.pedantic ? (f = f.replace(this.rules.other.listReplaceNesting, "  "), B = f) : B = f.replace(this.rules.other.tabCharGlobal, "    "), v.test(f) || Z.test(f) || m.test(f) || q.test(f) || H.test(f)) break;
-            if (B.search(this.rules.other.nonSpaceChar) >= x || !f.trim()) u += `
+            if (k = m, this.options.pedantic ? (k = k.replace(this.rules.other.listReplaceNesting, "  "), B = k) : B = k.replace(this.rules.other.tabCharGlobal, "    "), v.test(k) || Z.test(k) || p.test(k) || q.test(k) || H.test(k)) break;
+            if (B.search(this.rules.other.nonSpaceChar) >= x || !k.trim()) d += `
 ` + B.slice(x);
             else {
-              if (w || d.replace(this.rules.other.tabCharGlobal, "    ").search(this.rules.other.nonSpaceChar) >= 4 || v.test(d) || Z.test(d) || H.test(d)) break;
-              u += `
-` + f;
+              if (w || g.replace(this.rules.other.tabCharGlobal, "    ").search(this.rules.other.nonSpaceChar) >= 4 || v.test(g) || Z.test(g) || H.test(g)) break;
+              d += `
+` + k;
             }
-            !w && !f.trim() && (w = !0), c += b + `
-`, n = n.substring(b.length + 1), d = B.slice(x);
+            !w && !k.trim() && (w = !0), c += m + `
+`, n = n.substring(m.length + 1), g = B.slice(x);
           }
         }
         t.loose || (i ? t.loose = !0 : this.rules.other.doubleBlankLine.test(c) && (i = !0));
         let R = null, G;
-        this.options.gfm && (R = this.rules.other.listIsTask.exec(u), R && (G = R[0] !== "[ ] ", u = u.replace(this.rules.other.listReplaceTask, ""))), t.items.push({ type: "list_item", raw: c, task: !!R, checked: G, loose: !1, text: u, tokens: [] }), t.raw += c;
+        this.options.gfm && (R = this.rules.other.listIsTask.exec(d), R && (G = R[0] !== "[ ] ", d = d.replace(this.rules.other.listReplaceTask, ""))), t.items.push({ type: "list_item", raw: c, task: !!R, checked: G, loose: !1, text: d, tokens: [] }), t.raw += c;
       }
       let l = t.items.at(-1);
       if (l) l.raw = l.raw.trimEnd(), l.text = l.text.trimEnd();
       else return;
       t.raw = t.raw.trimEnd();
       for (let o = 0; o < t.items.length; o++) if (this.lexer.state.top = !1, t.items[o].tokens = this.lexer.blockTokens(t.items[o].text, []), !t.loose) {
-        let c = t.items[o].tokens.filter((d) => d.type === "space"), u = c.length > 0 && c.some((d) => this.rules.other.anyLine.test(d.raw));
-        t.loose = u;
+        let c = t.items[o].tokens.filter((g) => g.type === "space"), d = c.length > 0 && c.some((g) => this.rules.other.anyLine.test(g.raw));
+        t.loose = d;
       }
       if (t.loose) for (let o = 0; o < t.items.length; o++) t.items[o].loose = !0;
       return t;
@@ -264,7 +264,7 @@ ${u}` : u;
       let r = e[2].trim();
       if (!this.options.pedantic && this.rules.other.startAngleBracket.test(r)) {
         if (!this.rules.other.endAngleBracket.test(r)) return;
-        let a = j(r.slice(0, -1), "\\");
+        let a = D(r.slice(0, -1), "\\");
         if ((r.length - a.length) % 2 === 0) return;
       } else {
         let a = vt(e[2], "()");
@@ -308,13 +308,13 @@ ${u}` : u;
         }
         if (l -= i, l > 0) continue;
         i = Math.min(i, i + l + o);
-        let u = [...s[0]][0].length, d = n.slice(0, t + s.index + u + i);
+        let d = [...s[0]][0].length, g = n.slice(0, t + s.index + d + i);
         if (Math.min(t, i) % 2) {
-          let w = d.slice(1, -1);
-          return { type: "em", raw: d, text: w, tokens: this.lexer.inlineTokens(w) };
+          let w = g.slice(1, -1);
+          return { type: "em", raw: g, text: w, tokens: this.lexer.inlineTokens(w) };
         }
-        let f = d.slice(2, -2);
-        return { type: "strong", raw: d, text: f, tokens: this.lexer.inlineTokens(f) };
+        let k = g.slice(2, -2);
+        return { type: "strong", raw: g, text: k, tokens: this.lexer.inlineTokens(k) };
       }
     }
   }
@@ -362,7 +362,7 @@ ${u}` : u;
       return { type: "text", raw: e[0], text: e[0], escaped: r };
     }
   }
-}, E = class re {
+}, A = class re {
   tokens;
   options;
   state;
@@ -370,11 +370,11 @@ ${u}` : u;
   inlineQueue;
   constructor(e) {
     this.tokens = [], this.tokens.links = /* @__PURE__ */ Object.create(null), this.options = e || M, this.options.tokenizer = this.options.tokenizer || new K(), this.tokenizer = this.options.tokenizer, this.tokenizer.options = this.options, this.tokenizer.lexer = this, this.inlineQueue = [], this.state = { inLink: !1, inRawBlock: !1, top: !0 };
-    let r = { other: T, block: X.normal, inline: D.normal };
-    this.options.pedantic ? (r.block = X.pedantic, r.inline = D.pedantic) : this.options.gfm && (r.block = X.gfm, this.options.breaks ? r.inline = D.breaks : r.inline = D.gfm), this.tokenizer.rules = r;
+    let r = { other: T, block: X.normal, inline: N.normal };
+    this.options.pedantic ? (r.block = X.pedantic, r.inline = N.pedantic) : this.options.gfm && (r.block = X.gfm, this.options.breaks ? r.inline = N.breaks : r.inline = N.gfm), this.tokenizer.rules = r;
   }
   static get rules() {
-    return { block: X, inline: D };
+    return { block: X, inline: N };
   }
   static lex(e, r) {
     return new re(r).lex(e);
@@ -547,9 +547,9 @@ ${u}` : u;
       }
       let o = e;
       if (this.options.extensions?.startInline) {
-        let c = 1 / 0, u = e.slice(1), d;
-        this.options.extensions.startInline.forEach((f) => {
-          d = f.call({ lexer: this }, u), typeof d == "number" && d >= 0 && (c = Math.min(c, d));
+        let c = 1 / 0, d = e.slice(1), g;
+        this.options.extensions.startInline.forEach((k) => {
+          g = k.call({ lexer: this }, d), typeof g == "number" && g >= 0 && (c = Math.min(c, g));
         }), c < 1 / 0 && c >= 0 && (o = e.substring(0, c + 1));
       }
       if (l = this.tokenizer.inlineText(o)) {
@@ -580,8 +580,8 @@ ${u}` : u;
   code({ text: n, lang: e, escaped: r }) {
     let s = (e || "").match(T.notSpaceStart)?.[0], t = n.replace(T.endingNewline, "") + `
 `;
-    return s ? '<pre><code class="language-' + L(s) + '">' + (r ? t : L(t, !0)) + `</code></pre>
-` : "<pre><code>" + (r ? t : L(t, !0)) + `</code></pre>
+    return s ? '<pre><code class="language-' + z(s) + '">' + (r ? t : z(t, !0)) + `</code></pre>
+` : "<pre><code>" + (r ? t : z(t, !0)) + `</code></pre>
 `;
   }
   blockquote({ tokens: n }) {
@@ -618,7 +618,7 @@ ${this.parser.parse(n)}</blockquote>
     let e = "";
     if (n.task) {
       let r = this.checkbox({ checked: !!n.checked });
-      n.loose ? n.tokens[0]?.type === "paragraph" ? (n.tokens[0].text = r + " " + n.tokens[0].text, n.tokens[0].tokens && n.tokens[0].tokens.length > 0 && n.tokens[0].tokens[0].type === "text" && (n.tokens[0].tokens[0].text = r + " " + L(n.tokens[0].tokens[0].text), n.tokens[0].tokens[0].escaped = !0)) : n.tokens.unshift({ type: "text", raw: r + " ", text: r + " ", escaped: !0 }) : e += r + " ";
+      n.loose ? n.tokens[0]?.type === "paragraph" ? (n.tokens[0].text = r + " " + n.tokens[0].text, n.tokens[0].tokens && n.tokens[0].tokens.length > 0 && n.tokens[0].tokens[0].type === "text" && (n.tokens[0].tokens[0].text = r + " " + z(n.tokens[0].tokens[0].text), n.tokens[0].tokens[0].escaped = !0)) : n.tokens.unshift({ type: "text", raw: r + " ", text: r + " ", escaped: !0 }) : e += r + " ";
     }
     return e += this.parser.parse(n.tokens, !!n.loose), `<li>${e}</li>
 `;
@@ -664,7 +664,7 @@ ${n}</tr>
     return `<em>${this.parser.parseInline(n)}</em>`;
   }
   codespan({ text: n }) {
-    return `<code>${L(n, !0)}</code>`;
+    return `<code>${z(n, !0)}</code>`;
   }
   br(n) {
     return "<br>";
@@ -677,18 +677,18 @@ ${n}</tr>
     if (t === null) return s;
     n = t;
     let a = '<a href="' + n + '"';
-    return e && (a += ' title="' + L(e) + '"'), a += ">" + s + "</a>", a;
+    return e && (a += ' title="' + z(e) + '"'), a += ">" + s + "</a>", a;
   }
   image({ href: n, title: e, text: r, tokens: s }) {
     s && (r = this.parser.parseInline(s, this.parser.textRenderer));
     let t = $e(n);
-    if (t === null) return L(r);
+    if (t === null) return z(r);
     n = t;
     let a = `<img src="${n}" alt="${r}"`;
-    return e && (a += ` title="${L(e)}"`), a += ">", a;
+    return e && (a += ` title="${z(e)}"`), a += ">", a;
   }
   text(n) {
-    return "tokens" in n && n.tokens ? this.parser.parseInline(n.tokens) : "escaped" in n && n.escaped ? n.text : L(n.text);
+    return "tokens" in n && n.tokens ? this.parser.parseInline(n.tokens) : "escaped" in n && n.escaped ? n.text : z(n.text);
   }
 }, de = class {
   strong({ text: n }) {
@@ -718,7 +718,7 @@ ${n}</tr>
   br() {
     return "";
   }
-}, A = class se {
+}, E = class se {
   options;
   renderer;
   textRenderer;
@@ -862,7 +862,7 @@ ${n}</tr>
     }
     return s;
   }
-}, N = class {
+}, j = class {
   options;
   block;
   constructor(n) {
@@ -883,22 +883,22 @@ ${n}</tr>
     return n;
   }
   provideLexer() {
-    return this.block ? E.lex : E.lexInline;
+    return this.block ? A.lex : A.lexInline;
   }
   provideParser() {
-    return this.block ? A.parse : A.parseInline;
+    return this.block ? E.parse : E.parseInline;
   }
 }, Rt = class {
   defaults = ie();
   options = this.setOptions;
   parse = this.parseMarkdown(!0);
   parseInline = this.parseMarkdown(!1);
-  Parser = A;
+  Parser = E;
   Renderer = Y;
   TextRenderer = de;
-  Lexer = E;
+  Lexer = A;
   Tokenizer = K;
-  Hooks = N;
+  Hooks = j;
   constructor(...n) {
     this.use(...n);
   }
@@ -952,8 +952,8 @@ ${n}</tr>
           if (["options", "parser"].includes(a)) continue;
           let i = a, l = r.renderer[i], o = t[i];
           t[i] = (...c) => {
-            let u = l.apply(t, c);
-            return u === !1 && (u = o.apply(t, c)), u || "";
+            let d = l.apply(t, c);
+            return d === !1 && (d = o.apply(t, c)), d || "";
           };
         }
         s.renderer = t;
@@ -965,32 +965,32 @@ ${n}</tr>
           if (["options", "rules", "lexer"].includes(a)) continue;
           let i = a, l = r.tokenizer[i], o = t[i];
           t[i] = (...c) => {
-            let u = l.apply(t, c);
-            return u === !1 && (u = o.apply(t, c)), u;
+            let d = l.apply(t, c);
+            return d === !1 && (d = o.apply(t, c)), d;
           };
         }
         s.tokenizer = t;
       }
       if (r.hooks) {
-        let t = this.defaults.hooks || new N();
+        let t = this.defaults.hooks || new j();
         for (let a in r.hooks) {
           if (!(a in t)) throw new Error(`hook '${a}' does not exist`);
           if (["options", "block"].includes(a)) continue;
           let i = a, l = r.hooks[i], o = t[i];
-          N.passThroughHooks.has(a) ? t[i] = (c) => {
-            if (this.defaults.async && N.passThroughHooksRespectAsync.has(a)) return (async () => {
-              let d = await l.call(t, c);
-              return o.call(t, d);
+          j.passThroughHooks.has(a) ? t[i] = (c) => {
+            if (this.defaults.async && j.passThroughHooksRespectAsync.has(a)) return (async () => {
+              let g = await l.call(t, c);
+              return o.call(t, g);
             })();
-            let u = l.call(t, c);
-            return o.call(t, u);
+            let d = l.call(t, c);
+            return o.call(t, d);
           } : t[i] = (...c) => {
             if (this.defaults.async) return (async () => {
-              let d = await l.apply(t, c);
-              return d === !1 && (d = await o.apply(t, c)), d;
+              let g = await l.apply(t, c);
+              return g === !1 && (g = await o.apply(t, c)), g;
             })();
-            let u = l.apply(t, c);
-            return u === !1 && (u = o.apply(t, c)), u;
+            let d = l.apply(t, c);
+            return d === !1 && (d = o.apply(t, c)), d;
           };
         }
         s.hooks = t;
@@ -1009,10 +1009,10 @@ ${n}</tr>
     return this.defaults = { ...this.defaults, ...n }, this;
   }
   lexer(n, e) {
-    return E.lex(n, e ?? this.defaults);
+    return A.lex(n, e ?? this.defaults);
   }
   parser(n, e) {
-    return A.parse(n, e ?? this.defaults);
+    return E.parse(n, e ?? this.defaults);
   }
   parseMarkdown(n) {
     return (e, r) => {
@@ -1021,16 +1021,16 @@ ${n}</tr>
       if (typeof e > "u" || e === null) return a(new Error("marked(): input parameter is undefined or null"));
       if (typeof e != "string") return a(new Error("marked(): input parameter is of type " + Object.prototype.toString.call(e) + ", string expected"));
       if (t.hooks && (t.hooks.options = t, t.hooks.block = n), t.async) return (async () => {
-        let i = t.hooks ? await t.hooks.preprocess(e) : e, l = await (t.hooks ? await t.hooks.provideLexer() : n ? E.lex : E.lexInline)(i, t), o = t.hooks ? await t.hooks.processAllTokens(l) : l;
+        let i = t.hooks ? await t.hooks.preprocess(e) : e, l = await (t.hooks ? await t.hooks.provideLexer() : n ? A.lex : A.lexInline)(i, t), o = t.hooks ? await t.hooks.processAllTokens(l) : l;
         t.walkTokens && await Promise.all(this.walkTokens(o, t.walkTokens));
-        let c = await (t.hooks ? await t.hooks.provideParser() : n ? A.parse : A.parseInline)(o, t);
+        let c = await (t.hooks ? await t.hooks.provideParser() : n ? E.parse : E.parseInline)(o, t);
         return t.hooks ? await t.hooks.postprocess(c) : c;
       })().catch(a);
       try {
         t.hooks && (e = t.hooks.preprocess(e));
-        let i = (t.hooks ? t.hooks.provideLexer() : n ? E.lex : E.lexInline)(e, t);
+        let i = (t.hooks ? t.hooks.provideLexer() : n ? A.lex : A.lexInline)(e, t);
         t.hooks && (i = t.hooks.processAllTokens(i)), t.walkTokens && this.walkTokens(i, t.walkTokens);
-        let l = (t.hooks ? t.hooks.provideParser() : n ? A.parse : A.parseInline)(i, t);
+        let l = (t.hooks ? t.hooks.provideParser() : n ? E.parse : E.parseInline)(i, t);
         return t.hooks && (l = t.hooks.postprocess(l)), l;
       } catch (i) {
         return a(i);
@@ -1041,7 +1041,7 @@ ${n}</tr>
     return (r) => {
       if (r.message += `
 Please report this to https://github.com/markedjs/marked.`, n) {
-        let s = "<p>An error occurred:</p><pre>" + L(r.message + "", !0) + "</pre>";
+        let s = "<p>An error occurred:</p><pre>" + z(r.message + "", !0) + "</pre>";
         return e ? Promise.resolve(s) : s;
       }
       if (e) return Promise.reject(r);
@@ -1049,37 +1049,37 @@ Please report this to https://github.com/markedjs/marked.`, n) {
     };
   }
 }, I = new Rt();
-function k(n, e) {
+function b(n, e) {
   return I.parse(n, e);
 }
-k.options = k.setOptions = function(n) {
-  return I.setOptions(n), k.defaults = I.defaults, Te(k.defaults), k;
+b.options = b.setOptions = function(n) {
+  return I.setOptions(n), b.defaults = I.defaults, Te(b.defaults), b;
 };
-k.getDefaults = ie;
-k.defaults = M;
-k.use = function(...n) {
-  return I.use(...n), k.defaults = I.defaults, Te(k.defaults), k;
+b.getDefaults = ie;
+b.defaults = M;
+b.use = function(...n) {
+  return I.use(...n), b.defaults = I.defaults, Te(b.defaults), b;
 };
-k.walkTokens = function(n, e) {
+b.walkTokens = function(n, e) {
   return I.walkTokens(n, e);
 };
-k.parseInline = I.parseInline;
-k.Parser = A;
-k.parser = A.parse;
-k.Renderer = Y;
-k.TextRenderer = de;
-k.Lexer = E;
-k.lexer = E.lex;
-k.Tokenizer = K;
-k.Hooks = N;
-k.parse = k;
-k.options;
-k.setOptions;
-k.use;
-k.walkTokens;
-k.parseInline;
-A.parse;
-E.lex;
+b.parseInline = I.parseInline;
+b.Parser = E;
+b.parser = E.parse;
+b.Renderer = Y;
+b.TextRenderer = de;
+b.Lexer = A;
+b.lexer = A.lex;
+b.Tokenizer = K;
+b.Hooks = j;
+b.parse = b;
+b.options;
+b.setOptions;
+b.use;
+b.walkTokens;
+b.parseInline;
+E.parse;
+A.lex;
 function Ct({
   parentElement: n = "body",
   webhookUrl: e,
@@ -1092,9 +1092,9 @@ function Ct({
   floatingButtonPosition: l = "bottom-right",
   requestTimeout: o = 12e4,
   onError: c = null,
-  onMessageSent: u = null,
-  onMessageReceived: d = null,
-  onOpen: f = null,
+  onMessageSent: d = null,
+  onMessageReceived: g = null,
+  onOpen: k = null,
   onClose: w = null,
   onAgentRequested: x = null,
   enableHumanAgent: R = !0,
@@ -1133,14 +1133,25 @@ function Ct({
     emailSendError: "No se pudo enviar tu correo. Intenta más tarde.",
     emailSuccessMessage: "Gracias, nos pondremos en contacto a {email}",
     // Automatic contact human
-    automaticHumanContactMessage: "¡Vaya! Lo siento, parece que no estamos consiguiendo ayudarte. ¿Te gustaría contactar con nosotros?"
-  }, m = { ...Z, ...q }, b = {
+    automaticHumanContactMessage: "¡Vaya! Lo siento, parece que no estamos consiguiendo ayudarte. ¿Te gustaría contactar con nosotros?",
+    humanContactYesButton: "Sí",
+    humanContactNoButton: "No",
+    humanContactEmailButton: "Contactar por mail y teléfono",
+    // Accessibility & Validation
+    closeChatAriaLabel: "Cerrar chat",
+    closeChatTitle: "Cerrar",
+    inputAriaLabel: "Escribe tu mensaje",
+    sendAriaLabel: "Enviar mensaje",
+    openChatAriaLabel: "Abrir chat",
+    nameInvalidError: "Ingresa un nombre válido.",
+    phoneInvalidError: "Ingresa un teléfono válido."
+  }, p = { ...Z, ...q }, m = {
     sessionId: crypto.randomUUID(),
     messageHistory: [],
     isTyping: !1,
     isOpen: a === "embedded",
     chatResponseMode: "bot",
-    originalPlaceholder: m.placeholder,
+    originalPlaceholder: p.placeholder,
     enableHumanAgent: R,
     enableEmailFallback: G
   };
@@ -1149,15 +1160,15 @@ function Ct({
     <div id="chatbot-widget" class="chatbot-widget ${a === "embedded" ? "widget-open" : ""}">
       <header id="chatbot-header" class="chatbot-header">
         <div class="chatbot-header-content">
-          ${r ? `<img src="${r}" class="chatbot-header-logo" alt="${m.title} logo" loading="lazy">` : ""}
+          ${r ? `<img src="${r}" class="chatbot-header-logo" alt="${p.title} logo" loading="lazy">` : ""}
           <div class="chatbot-header-text">
-            <h1 class="chatbot-header-title">${m.title}</h1>
-            <p class="chatbot-header-subtitle">${m.subtitle}</p>
+            <h1 class="chatbot-header-title">${p.title}</h1>
+            <p class="chatbot-header-subtitle">${p.subtitle}</p>
           </div>
         </div>
         <div class="chatbot-header-actions">
           ${a !== "embedded" ? `
-            <button id="chatbot-close" class="chatbot-action-btn" aria-label="Cerrar chat" title="Cerrar">
+            <button id="chatbot-close" class="chatbot-action-btn" aria-label="${p.closeChatAriaLabel}" title="${p.closeChatTitle}">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M5 5l10 10M15 5l-10 10"/>
               </svg>
@@ -1168,32 +1179,32 @@ function Ct({
 
       <div id="chatbox" class="chatbot-chat" role="log" aria-live="polite" aria-atomic="false"></div>
 
-      ${b.enableHumanAgent ? `
+      ${m.enableHumanAgent ? `
         <div id="chatbot-agent-btn-container" class="chatbot-agent-btn-container">
-          <button id="chatbot-agent-btn" class="chatbot-agent-btn">${m.humanAgentButton}</button>
+          <button id="chatbot-agent-btn" class="chatbot-agent-btn">${p.humanAgentButton}</button>
         </div>
       ` : ""}
 
       <div id="chatbot-input" class="chatbot-input-area">
         <textarea 
           id="chatInput" 
-          placeholder="${m.placeholder}"
+          placeholder="${p.placeholder}"
           rows="1"
-          aria-label="Escribe tu mensaje"
+          aria-label="${p.inputAriaLabel}"
           maxlength="2000"
         ></textarea>
-        <button id="sendBtn" aria-label="Enviar mensaje" disabled>
+        <button id="sendBtn" aria-label="${p.sendAriaLabel}" disabled>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
             <path d="M2 3l16 7-16 7V3zm2 11.5V14l6-4-6-4v2.5L9 10l-5 4.5z"/>
           </svg>
         </button>
       </div>
 
-      ${m.footerText ? `<footer id="chatbot-footer" class="chatbot-footer">${m.footerText}</footer>` : ""}
+      ${p.footerText ? `<footer id="chatbot-footer" class="chatbot-footer">${p.footerText}</footer>` : ""}
     </div>
 
     ${a === "floating" ? `
-      <button id="chatbot-floating-btn" class="chatbot-floating-btn ${l}" aria-label="Abrir chat">
+      <button id="chatbot-floating-btn" class="chatbot-floating-btn ${l}" aria-label="${p.openChatAriaLabel}">
         ${i}
       </button>
     ` : ""}
@@ -1216,51 +1227,51 @@ function Ct({
       behavior: "smooth"
     });
   }
-  function V(p, y = null) {
-    h.input.disabled = !p, y && (h.input.placeholder = y), p && !h.input.value.trim() && (h.sendButton.disabled = !0);
+  function V(u, y = null) {
+    h.input.disabled = !u, y && (h.input.placeholder = y), u && !h.input.value.trim() && (h.sendButton.disabled = !0);
   }
-  function _(p, y = "user") {
+  function _(u, y = "user") {
     const $ = document.createElement("div");
     $.classList.add("chat-message", `chat-message-${y}`), $.setAttribute("role", "article");
     const S = document.createElement("div");
-    S.classList.add("message-bubble"), S.innerHTML = k.parse(p), $.appendChild(S), h.chatbox.appendChild($), requestAnimationFrame(() => {
+    S.classList.add("message-bubble"), S.innerHTML = b.parse(u), $.appendChild(S), h.chatbox.appendChild($), requestAnimationFrame(() => {
       $.classList.add("message-visible"), Q();
-    }), b.messageHistory.push({ text: p, from: y, timestamp: Date.now() });
+    }), m.messageHistory.push({ text: u, from: y, timestamp: Date.now() });
   }
   function _e() {
-    if (!t || b.isTyping) return;
-    b.isTyping = !0;
-    const p = document.createElement("div");
-    p.classList.add("chat-message", "chat-message-bot", "typing-indicator"), p.id = "typing-indicator", b.chatResponseMode === "human" ? p.innerHTML = `
+    if (!t || m.isTyping) return;
+    m.isTyping = !0;
+    const u = document.createElement("div");
+    u.classList.add("chat-message", "chat-message-bot", "typing-indicator"), u.id = "typing-indicator", m.chatResponseMode === "human" ? u.innerHTML = `
         <div class="message-bubble">
-          <span class="waiting-text">${m.waitingForAgent}</span>
+          <span class="waiting-text">${p.waitingForAgent}</span>
         </div>
-      ` : p.innerHTML = `
+      ` : u.innerHTML = `
         <div class="message-bubble">
           <span class="dot"></span>
           <span class="dot"></span>
           <span class="dot"></span>
         </div>
-      `, h.chatbox.appendChild(p), Q();
+      `, h.chatbox.appendChild(u), Q();
   }
   function ge() {
-    const p = document.getElementById("typing-indicator");
-    p && (p.remove(), b.isTyping = !1);
+    const u = document.getElementById("typing-indicator");
+    u && (u.remove(), m.isTyping = !1);
   }
   async function W() {
-    const p = h.input.value.trim();
-    if (!(!p || b.isTyping)) {
-      _(p, "user"), h.input.value = "", h.sendButton.disabled = !0, u && u(p), _e(), b.chatResponseMode === "human" && V(!1, m.waitingPlaceholder);
+    const u = h.input.value.trim();
+    if (!(!u || m.isTyping)) {
+      _(u, "user"), h.input.value = "", h.sendButton.disabled = !0, d && d(u), _e(), m.chatResponseMode === "human" && V(!1, p.waitingPlaceholder);
       try {
         const y = new AbortController(), $ = setTimeout(() => y.abort(), o), S = await fetch(e, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            sessionId: b.sessionId,
+            sessionId: m.sessionId,
             action: "sendMessage",
-            chatInput: p,
-            messageHistory: b.messageHistory,
-            chatResponseMode: b.chatResponseMode,
+            chatInput: u,
+            messageHistory: m.messageHistory,
+            chatResponseMode: m.chatResponseMode,
             maximumWaitingTime: o
           }),
           signal: y.signal
@@ -1271,62 +1282,62 @@ function Ct({
           Ze();
           return;
         }
-        const z = C.reply || C.message || C.output || m.noResponse;
-        _(z, "bot"), b.chatResponseMode === "human" && V(!0, b.originalPlaceholder), d && d(z, C);
+        const L = C.reply || C.message || C.output || p.noResponse;
+        _(L, "bot"), m.chatResponseMode === "human" && V(!0, m.originalPlaceholder), g && g(L, C);
       } catch (y) {
-        if (ge(), y.name === "AbortError" && b.enableEmailFallback) {
-          _(m.timeoutMessage, "bot"), V(!1, m.timeoutPlaceholder), fe();
+        if (ge(), y.name === "AbortError" && m.enableEmailFallback) {
+          _(p.timeoutMessage, "bot"), V(!1, p.timeoutPlaceholder), fe();
           return;
         }
-        _(m.connectionError, "bot"), b.chatResponseMode === "human" && V(!0, b.originalPlaceholder), c && c(y), console.error("Error del chatbot:", y);
+        _(p.connectionError, "bot"), m.chatResponseMode === "human" && V(!0, m.originalPlaceholder), c && c(y), console.error("Error del chatbot:", y);
       }
     }
   }
   function qe() {
-    b.isOpen || (b.isOpen = !0, h.widget.classList.add("widget-open"), h.floatingButton && h.floatingButton.classList.add("hidden"), f && f(), setTimeout(() => h.input.focus(), 300));
+    m.isOpen || (m.isOpen = !0, h.widget.classList.add("widget-open"), h.floatingButton && h.floatingButton.classList.add("hidden"), k && k(), setTimeout(() => h.input.focus(), 300));
   }
   function He() {
-    !b.isOpen || a === "embedded" || (b.isOpen = !1, h.widget.classList.remove("widget-open"), h.floatingButton && h.floatingButton.classList.remove("hidden"), w && w());
+    !m.isOpen || a === "embedded" || (m.isOpen = !1, h.widget.classList.remove("widget-open"), h.floatingButton && h.floatingButton.classList.remove("hidden"), w && w());
   }
   function fe() {
     h.inputWrapper.remove(), h.agentButtonContainer && h.agentButtonContainer.remove();
-    const p = document.createElement("div");
-    p.classList.add("chat-message", "chat-message-bot", "email-prompt"), p.innerHTML = `
+    const u = document.createElement("div");
+    u.classList.add("chat-message", "chat-message-bot", "email-prompt"), u.innerHTML = `
     <div class="message-bubble">
-      <p>${m.emailPromptMessage}</p>
+      <p>${p.emailPromptMessage}</p>
       <form id="emailForm">
-        <input type="text" id="userName" name="userName" autocomplete="name" placeholder="${m.usernamePlaceholder}" aria-label="Nombre" >
+        <input type="text" id="userName" name="userName" autocomplete="name" placeholder="${p.usernamePlaceholder}" aria-label="Nombre" >
         <p id="nameError" class="field-error"></p>
-        <input type="email" id="userEmail" name="userEmail" autocomplete="email" placeholder="${m.emailPlaceholder}" aria-label="Correo electrónico" >
+        <input type="email" id="userEmail" name="userEmail" autocomplete="email" placeholder="${p.emailPlaceholder}" aria-label="Correo electrónico" >
         <p id="emailError" class="field-error"></p>
-        <input type="phone" id="userPhone" name="userPhone" autocomplete="phone" placeholder="${m.phonePlaceholder}" aria-label="Teléfono" >
+        <input type="phone" id="userPhone" name="userPhone" autocomplete="phone" placeholder="${p.phonePlaceholder}" aria-label="Teléfono" >
         <p id="phoneError" class="field-error"></p>
-        <button type="submit">${m.emailSubmitButton}</button>
+        <button type="submit">${p.emailSubmitButton}</button>
         <p id="formError" class="field-error"></p>
       </form>
     </div>
-  `, h.chatbox.appendChild(p), Q();
-    const y = p.querySelector("#emailForm"), $ = p.querySelector("#nameError"), S = p.querySelector("#phoneError"), C = p.querySelector("#emailError"), z = p.querySelector("#formError"), be = p.querySelector('button[type="submit"]');
+  `, h.chatbox.appendChild(u), Q();
+    const y = u.querySelector("#emailForm"), $ = u.querySelector("#nameError"), S = u.querySelector("#phoneError"), C = u.querySelector("#emailError"), L = u.querySelector("#formError"), be = u.querySelector('button[type="submit"]');
     y.addEventListener("submit", async (me) => {
       me.preventDefault();
-      const je = new FormData(me.target), P = Object.fromEntries(je);
+      const De = new FormData(me.target), P = Object.fromEntries(De);
       [$, S, C].forEach(
-        (Ne) => Ne.style.display = "none"
+        (je) => je.style.display = "none"
       );
       let U = !0;
-      if (P.userName.trim().length < 2 && ($.textContent = "Ingresa un nombre válido.", $.style.display = "block", U = !1), /\S+@\S+\.\S+/.test(P.userEmail) || (C.textContent = m.emailInvalidError, C.style.display = "block", U = !1), P.userPhone.trim().length < 6 && (S.textContent = "Ingresa un teléfono válido.", S.style.display = "block", U = !1), !!U) {
+      if (P.userName.trim().length < 2 && ($.textContent = p.nameInvalidError, $.style.display = "block", U = !1), /\S+@\S+\.\S+/.test(P.userEmail) || (C.textContent = p.emailInvalidError, C.style.display = "block", U = !1), P.userPhone.trim().length < 6 && (S.textContent = p.phoneInvalidError, S.style.display = "block", U = !1), !!U) {
         be.classList.add("loading"), C.style.display = "none";
         try {
-          await De({
+          await Ne({
             email: P.userEmail,
             name: P.userName,
             phone: P.userPhone
           }), _(
-            m.emailSuccessMessage.replace("{email}", P.userEmail),
+            p.emailSuccessMessage.replace("{email}", P.userEmail),
             "bot"
-          ), p.remove();
+          ), u.remove();
         } catch {
-          z.textContent = m.emailSendError, z.style.display = "block";
+          L.textContent = p.emailSendError, L.style.display = "block";
         } finally {
           be.classList.remove("loading");
         }
@@ -1334,33 +1345,33 @@ function Ct({
     });
   }
   function Ze() {
-    const p = `human-contact-btns-${Date.now()}`, y = `
+    const u = `human-contact-btns-${Date.now()}`, y = `
           <div class="message-bubble">
             <p>${Z.automaticHumanContactMessage}</p>
-            <div id="${p}" class="human-contact-buttons">
-              <button data-action="yes">Sí</button>
-              <button data-action="no">No</button>
-              <button data-action="email">Contactar por mail y teléfono</button>
+            <div id="${u}" class="human-contact-buttons">
+              <button data-action="yes">${p.humanContactYesButton}</button>
+              <button data-action="no">${p.humanContactNoButton}</button>
+              <button data-action="email">${p.humanContactEmailButton}</button>
             </div>
           </div>
         `, $ = document.createElement("div");
-    $.classList.add("chat-message", "chat-message-bot"), $.innerHTML = y, h.chatbox.appendChild($), Q(), document.getElementById(p).addEventListener("click", (C) => {
-      const z = C.target.dataset.action;
-      z && (z === "yes" ? ke() : z === "no" || z === "email" && fe(), $.remove());
+    $.classList.add("chat-message", "chat-message-bot"), $.innerHTML = y, h.chatbox.appendChild($), Q(), document.getElementById(u).addEventListener("click", (C) => {
+      const L = C.target.dataset.action;
+      L && (L === "yes" ? ke() : L === "no" || L === "email" && fe(), $.remove());
     });
   }
-  async function De({ email: p, name: y, phone: $ }) {
+  async function Ne({ email: u, name: y, phone: $ }) {
     try {
       const S = await fetch(e, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          email: p,
+          email: u,
           name: y,
           phone: $,
-          sessionId: b.sessionId,
+          sessionId: m.sessionId,
           action: "submitEmail",
-          messageHistory: b.messageHistory
+          messageHistory: m.messageHistory
         })
       });
       if (!S.ok) throw new Error(`HTTP ${S.status}`);
@@ -1370,15 +1381,15 @@ function Ct({
     }
   }
   function ke() {
-    b.chatResponseMode = "human", h.agentButtonContainer.classList.add("hiding"), h.agentButtonContainer.remove(), h.input.value = m.humanAgentMessage, h.sendButton.disabled = !1, W();
+    m.chatResponseMode = "human", h.agentButtonContainer.classList.add("hiding"), h.agentButtonContainer.remove(), h.input.value = p.humanAgentMessage, h.sendButton.disabled = !1, W();
   }
   h.input.addEventListener("input", () => {
     h.input.disabled || (h.sendButton.disabled = !h.input.value.trim());
-  }), h.sendButton.addEventListener("click", W), h.input.addEventListener("keypress", (p) => {
-    p.key === "Enter" && !p.shiftKey && (p.preventDefault(), W());
-  }), h.closeButton && h.closeButton.addEventListener("click", He), h.floatingButton && h.floatingButton.addEventListener("click", qe), h.agentButton && b.enableHumanAgent && h.agentButton.addEventListener("click", () => {
+  }), h.sendButton.addEventListener("click", W), h.input.addEventListener("keypress", (u) => {
+    u.key === "Enter" && !u.shiftKey && (u.preventDefault(), W());
+  }), h.closeButton && h.closeButton.addEventListener("click", He), h.floatingButton && h.floatingButton.addEventListener("click", qe), h.agentButton && m.enableHumanAgent && h.agentButton.addEventListener("click", () => {
     ke(), W(), x && x();
-  }), m.initialMessage && _(m.initialMessage, "bot");
+  }), p.initialMessage && _(p.initialMessage, "bot");
 }
 export {
   Ct as createChatbot
