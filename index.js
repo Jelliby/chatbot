@@ -1162,7 +1162,7 @@ function Ct({
         <div class="chatbot-header-content">
           ${r ? `<img src="${r}" class="chatbot-header-logo" alt="${p.title} logo" loading="lazy">` : ""}
           <div class="chatbot-header-text">
-            <h1 class="chatbot-header-title">${p.title}</h1>
+            <p class="chatbot-header-title">${p.title}</p>
             <p class="chatbot-header-subtitle">${p.subtitle}</p>
           </div>
         </div>
